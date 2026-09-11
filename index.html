@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -9,243 +10,353 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=Pinyon+Script&family=Mrs+Saint+Delafield&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Pinyon+Script&family=Mrs+Saint+Delafield&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
 
 <style>
 
-  :root{
-    --wine:#370015;
-    --olive:#6c7246;
-    --olive-deep:#4f5735;
-    --cream:#fff1da;
-    --hairline:rgba(255,241,218,.4);
-    --cream-70:rgba(255,241,218,.7);
-    --cream-55:rgba(255,241,218,.55);
-  }
+/* =========================================================
+   COLORS
+   ========================================================= */
+
+:root{
+  --wine:#370015;
+  --olive:#6c7246;
+  --olive-deep:#4f5735;
+  --cream:#fff1da;
+
+  --hairline:rgba(255,241,218,.55);
+  --cream-70:rgba(255,241,218,.7);
+  --cream-55:rgba(255,241,218,.55);
+}
 
 
-  *{
-    box-sizing:border-box;
-    margin:0;
-    padding:0;
-  }
+/* =========================================================
+   ANIYAH FONT
+   ========================================================= */
+
+@font-face{
+  font-family:'Aniyah';
+  src:url('fonts/Aniyah Personal Use Only.ttf') format('truetype');
+  font-weight:400;
+  font-style:normal;
+}
 
 
-  html{
-    scroll-behavior:smooth;
-  }
+/* =========================================================
+   RESET
+   ========================================================= */
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  background:var(--wine);
+  color:var(--cream);
+  font-family:'Cormorant Garamond', serif;
+  font-size:19px;
+  line-height:1.7;
+  overflow-x:hidden;
+}
+
+::selection{
+  background:var(--olive);
+  color:var(--cream);
+}
+
+a{
+  color:inherit;
+}
 
 
-  body{
-    background:var(--wine);
-    color:var(--cream);
-    font-family:'EB Garamond',serif;
-    font-size:18px;
-    line-height:1.7;
-    overflow-x:hidden;
-  }
+/* =========================================================
+   FONT UTILITIES
+   ========================================================= */
+
+.aniyah-font{
+  font-family:'Aniyah', cursive !important;
+  font-weight:400;
+}
+
+.garamond-font{
+  font-family:'Cormorant Garamond', serif !important;
+}
+
+.eyebrow{
+  font-family:'Cormorant Garamond', serif;
+  font-size:.9rem;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  color:var(--cream);
+  font-weight:500;
+}
 
 
-  ::selection{
-    background:var(--olive);
-    color:var(--cream);
-  }
+/* =========================================================
+   REVEAL ANIMATION
+   ========================================================= */
+
+.reveal{
+  opacity:0;
+  transform:translateY(18px);
+  transition:opacity .9s ease, transform .9s ease;
+}
+
+.reveal.in{
+  opacity:1;
+  transform:translateY(0);
+}
 
 
-  a{
-    color:inherit;
-  }
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.hero{
+  position:relative;
+  min-height:100vh;
+
+  padding:3.4rem 1.6rem 2.4rem;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  background-image:
+    linear-gradient(
+      rgba(55,0,21,.60),
+      rgba(55,0,21,.80)
+    ),
+    url('images/BACKGROUND.png');
+
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
+}
 
 
-  .script-name{
-    font-family:'Pinyon Script',cursive;
-    font-weight:400;
-  }
+/* =========================================================
+   HERO BORDER
+   ========================================================= */
 
+.hero-frame{
+  position:absolute;
 
-  .script-date{
-    font-family:'Mrs Saint Delafield',cursive;
-    font-weight:400;
-  }
+  top:28px;
+  right:28px;
+  bottom:28px;
+  left:28px;
 
+  border:1px solid var(--hairline);
 
-  .eyebrow{
-    font-size:.78rem;
-    letter-spacing:.22em;
-    text-transform:uppercase;
-    color:var(--cream);
-  }
+  pointer-events:none;
 
+  z-index:1;
+}
 
-  .reveal{
-    opacity:0;
-    transform:translateY(18px);
-    transition:opacity .9s ease,transform .9s ease;
-  }
-
-
-  .reveal.in{
-    opacity:1;
-    transform:translateY(0);
-  }
-
-
-  .motif{
-    display:block;
-    margin:0 auto;
-  }
-
-
-  /* =========================================================
-     HERO
-     ========================================================= */
-
-  .hero{
-    position:relative;
-    min-height:100vh;
-
-    padding:3.4rem 1.6rem 2.4rem;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    background-image:
-      linear-gradient(#37001599,#370015cc),
-      url('images/BACKGROUND.png');
-
-    background-size:cover;
-    background-position:center;
-    background-repeat:no-repeat;
-  }
-
+@media(min-width:640px){
 
   .hero-frame{
-    position:absolute;
-    inset:28px;
-    border:1px solid var(--hairline);
-    pointer-events:none;
+    top:44px;
+    right:44px;
+    bottom:44px;
+    left:44px;
   }
 
-
-  @media(min-width:640px){
-
-    .hero-frame{
-      inset:44px;
-    }
-
-  }
+}
 
 
-  .hero-inner{
-    position:relative;
-    z-index:2;
+/* =========================================================
+   HERO CONTENT
+   ========================================================= */
 
-    max-width:560px;
-    width:100%;
+.hero-inner{
+  position:relative;
 
-    text-align:center;
+  z-index:2;
 
-    padding:2.4rem 1.2rem 8rem;
-  }
+  /*
+     IMPORTANT:
+     Previously this was 560px.
+     That was too narrow for the Aniyah font.
 
+     The wider container allows
+     "Laiba Aaliya Hadis" to stay
+     on ONE LINE.
+  */
 
-  .hero-para{
-    max-width:420px;
+  max-width:1000px;
 
-    margin:1.6rem auto 0;
+  width:100%;
 
-    font-size:1.02rem;
+  text-align:center;
 
-    color:var(--cream-70);
-
-    line-height:1.75;
-  }
-
-
-  .hero-para em{
-    font-style:italic;
-  }
+  padding:2.4rem 1.2rem 8rem;
+}
 
 
-  .couple-block{
-    margin-top:1.6rem;
-  }
+/* =========================================================
+   INTRODUCTION PARAGRAPH
+   ========================================================= */
+
+.hero-para{
+  max-width:460px;
+
+  margin:1.6rem auto 0;
+
+  font-family:'Cormorant Garamond', serif;
+
+  font-size:1.18rem;
+
+  color:var(--cream-70);
+
+  line-height:1.75;
+
+  font-weight:400;
+
+  text-align:center;
+}
+
+.hero-para em{
+  font-style:italic;
+}
 
 
-  .couple-name{
-    font-size:clamp(2.1rem,7.4vw,3.3rem);
-    line-height:1.1;
-    color:var(--cream);
-    white-space:nowrap;
-  }
+/* =========================================================
+   COUPLE BLOCK
+   ========================================================= */
+
+.couple-block{
+  margin-top:1.6rem;
+
+  width:100%;
+
+  display:flex;
+
+  flex-direction:column;
+
+  align-items:center;
+
+  justify-content:center;
+
+  text-align:center;
+}
 
 
-  .couple-sub{
-    margin-top:.3rem;
+/* =========================================================
+   COUPLE NAMES
+   ========================================================= */
 
-    font-style:italic;
+.couple-name{
+  font-family:'Aniyah', cursive;
 
-    font-size:.8rem;
+  /*
+     Desktop:
+     Large enough to look elegant,
+     but small enough to fit on one line.
+  */
 
-    letter-spacing:.1em;
+  font-size:clamp(2rem,2.5vw,2.8rem);
 
-    text-transform:uppercase;
+  line-height:1.1;
 
-    color:var(--cream-70);
-  }
+  color:var(--cream);
 
+  width:100%;
 
-  .amp{
-    font-family:'Pinyon Script',cursive;
+  display:block;
 
-    font-size:1.9rem;
+  text-align:center;
 
-    color:var(--cream);
+  /*
+     MOST IMPORTANT:
+     Prevents Laiba Aaliya Hadis
+     from breaking into two lines.
+  */
 
-    margin:.7rem 0;
+  white-space:nowrap;
 
-    display:block;
-  }
-
-
-  .rsvp-mini{
-    margin-top:2.8rem;
-  }
-
-
-  .rsvp-mini .r-label{
-    font-weight:600;
-
-    font-size:.86rem;
-
-    letter-spacing:.2em;
-
-    margin-bottom:.5rem;
-  }
+  margin-left:auto;
+  margin-right:auto;
+}
 
 
-  .r-names{
-    font-size:.86rem;
+/* =========================================================
+   PARENTS NAMES
+   ========================================================= */
 
-    letter-spacing:.1em;
+.couple-sub{
+  margin-top:1.7rem;
 
-    text-transform:uppercase;
+  width:100%;
 
-    color:var(--cream-70);
-  }
+  max-width:900px;
+
+  display:block;
+
+  font-family:'Cormorant Garamond', serif;
+
+  font-style:italic;
+
+  font-size:1.05rem;
+
+  letter-spacing:.1em;
+
+  text-transform:uppercase;
+
+  color:var(--cream-70);
+
+  text-align:center;
+
+  font-weight:500;
+
+  line-height:1.5;
+
+  margin-left:auto;
+  margin-right:auto;
+}
 
 
-  /* =========================================================
-     SAVE THE DATE
-     ========================================================= */
+/* =========================================================
+   AMPERSAND
+   ========================================================= */
 
-  .save-date{
-    position:relative;
+.amp{
+  font-family:'Pinyon Script', cursive;
 
-    padding:6rem 1.4rem;
+  font-size:1.9rem;
 
-    background:repeating-linear-gradient(
+  color:var(--cream);
+
+  margin:.7rem 0;
+
+  display:block;
+
+  text-align:center;
+}
+
+
+/* =========================================================
+   SAVE THE DATE
+   ========================================================= */
+
+.save-date{
+  position:relative;
+
+  height:100vh;
+  min-height:100vh;
+  box-sizing:border-box;
+
+  padding:1.5rem 1.4rem;
+
+  background:
+    repeating-linear-gradient(
       90deg,
       var(--wine) 0px,
       var(--wine) 26px,
@@ -253,730 +364,675 @@
       var(--cream) 52px
     );
 
-    background-size:208px 100%;
+  background-size:208px 100%;
 
-    animation:stripeMove 16s linear infinite;
+  animation:stripeMove 16s linear infinite;
 
-    display:flex;
+  display:flex;
 
-    justify-content:center;
+  justify-content:center;
+}
+
+@keyframes stripeMove{
+
+  from{
+    background-position:0 0;
+  }
+
+  to{
+    background-position:208px 0;
+  }
+
+}
+
+
+/* =========================================================
+   SAVE THE DATE PILL
+   ========================================================= */
+
+.pill{
+  position:relative;
+
+  background:var(--olive);
+
+  width:min(94vw,490px);
+  box-sizing:border-box;
+
+  padding:3.2rem 2.6rem 2.6rem;
+
+  border-radius:240px;
+
+  text-align:center;
+
+  box-shadow:
+    0 0 0 1px var(--hairline);
+}
+
+
+/* =========================================================
+   SAVE THE DATE TEXT
+   ========================================================= */
+
+.pill .std{
+  line-height:1;
+}
+
+.pill .std-word{
+  display:block;
+
+  font-family:'Aniyah', cursive;
+
+  font-size:clamp(2.6rem,7.5vw,3.6rem);
+
+  line-height:1.2;
+
+  color:var(--wine);
+}
+
+.pill .std-the{
+  display:block;
+
+  font-family:'Cormorant Garamond', serif !important;
+
+  font-size:.95rem;
+
+  font-weight:500;
+
+  letter-spacing:.18em;
+
+  text-transform:uppercase;
+
+  line-height:1;
+
+  color:var(--wine);
+
+  margin:.15rem 0;
+}
+
+
+/* =========================================================
+   EVENT DETAILS
+   ========================================================= */
+
+.pill .sched{
+  margin-top:2.6rem;
+
+  font-family:'Cormorant Garamond', serif;
+
+  font-size:1.05rem;
+
+  letter-spacing:.12em;
+
+  text-transform:uppercase;
+
+  color:var(--cream);
+
+  line-height:2.1;
+
+  font-weight:400;
+}
+
+.pill .sched .strong{
+  font-weight:600;
+}
+
+.ceremony-line{
+  display:block;
+  width:150px;
+  height:1px;
+  background:var(--wine);
+  margin-left:auto;
+  margin-right:auto;
+}
+
+.ceremony-line:first-child{
+  margin-bottom:1.2rem;
+}
+
+.ceremony-line:last-child{
+  margin-top:1.2rem;
+}
+
+.pill .venue-label{
+  margin-top:1.6rem;
+
+  font-family:'Cormorant Garamond', serif;
+
+  font-weight:600;
+
+  font-size:.95rem;
+
+  letter-spacing:.2em;
+
+  text-transform:uppercase;
+
+  color:var(--cream);
+}
+
+.pill .venue-addr{
+  margin-top:.5rem;
+
+  font-family:'Cormorant Garamond', serif;
+
+  font-size:.95rem;
+
+  letter-spacing:.06em;
+
+  color:var(--cream);
+
+  text-transform:uppercase;
+
+  line-height:1.9;
+
+  font-weight:400;
+}
+
+
+/* =========================================================
+   COUNTDOWN
+   ========================================================= */
+
+.countdown-strip{
+  display:flex;
+
+  justify-content:center;
+
+  gap:2.6rem;
+
+  padding:3.4rem 1rem 1rem;
+
+  text-align:center;
+}
+
+.countdown-strip .cd-item{
+  min-width:60px;
+}
+
+.countdown-strip .num{
+  display:block;
+
+  font-family:'Cormorant Garamond', serif;
+
+  font-size:2.6rem;
+
+  font-weight:600;
+
+  color:var(--cream);
+
+  line-height:1;
+}
+
+.countdown-strip .lbl{
+  display:block;
+
+  margin-top:.4rem;
+
+  font-family:'Cormorant Garamond', serif;
+
+  font-size:.78rem;
+
+  letter-spacing:.16em;
+
+  text-transform:uppercase;
+
+  color:var(--cream-70);
+
+  font-weight:500;
+}
+
+
+/* =========================================================
+   GENERIC SECTIONS
+   ========================================================= */
+
+.section{
+  padding:6rem 1.6rem;
+
+  max-width:640px;
+
+  margin:0 auto;
+
+  text-align:center;
+}
+
+.section .eyebrow{
+  margin-bottom:1.6rem;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  gap:.8rem;
+}
+
+.section .eyebrow .rule{
+  width:34px;
+
+  height:1px;
+
+  background:var(--hairline);
+}
+
+.quote{
+  font-family:'Cormorant Garamond', serif;
+
+  font-size:1.4rem;
+
+  font-style:italic;
+
+  line-height:1.7;
+
+  color:var(--cream);
+
+  font-weight:400;
+}
+
+
+/* =========================================================
+   VERSE SECTION
+   ========================================================= */
+
+.verse-section{
+  max-width:100%;
+
+  width:100%;
+
+  position:relative;
+
+  overflow:visible;
+
+  padding-top:6rem;
+
+  padding-bottom:6rem;
+}
+
+.verse-section .eyebrow,
+.verse-section .quote{
+  max-width:640px;
+
+  margin:0 auto;
+
+  position:relative;
+
+  z-index:3;
+}
+
+.verse-section .eyebrow{
+  margin-bottom:1.6rem;
+}
+
+
+/* =========================================================
+   FLOWERS
+   ========================================================= */
+
+.flower{
+  position:absolute;
+
+  z-index:1;
+
+  pointer-events:none;
+
+  width:clamp(1200px,42vw,1650px);
+
+  max-width:none;
+
+  height:auto;
+
+  opacity:.95;
+}
+
+.flower-tl{
+  top:-130px;
+  left:-120px;
+}
+
+.flower-tr{
+  top:-120px;
+  right:-150px;
+}
+
+.flower-bl{
+  bottom:-320px;
+  left:-100px;
+}
+
+.flower-br{
+  bottom:-320px;
+  right:-100px;
+}
+
+
+/* =========================================================
+   DUA
+   ========================================================= */
+
+.dua-ar{
+  font-family:'Amiri', serif;
+
+  font-size:2rem;
+
+  line-height:1.8;
+
+  color:var(--cream);
+
+  direction:rtl;
+}
+
+.arabic{
+  direction:rtl;
+}
+
+.dua-translit,
+.dua-trans{
+  font-family:'Cormorant Garamond', serif;
+
+  color:var(--cream-70);
+
+  font-size:1.05rem;
+}
+
+.dua-translit{
+  margin-top:1rem;
+
+  font-style:italic;
+}
+
+.dua-trans{
+  margin-top:.8rem;
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+footer{
+  text-align:center;
+
+  padding:4.5rem 1.6rem 3rem;
+
+  border-top:1px solid var(--hairline);
+}
+
+footer .script-name{
+  font-family:'Aniyah', cursive;
+
+  font-size:2.4rem;
+
+  color:var(--olive);
+}
+
+footer p{
+  font-family:'Cormorant Garamond', serif;
+
+  color:var(--cream-70);
+
+  font-size:.95rem;
+
+  letter-spacing:.06em;
+
+  margin-top:.6rem;
+
+  text-transform:uppercase;
+
+  line-height:1.7;
+}
+
+
+/* =========================================================
+   TABLET / SMALL DESKTOP
+   ========================================================= */
+
+@media(max-width:1000px){
+
+  .flower{
+    width:clamp(280px,43vw,520px);
+  }
+
+  .flower-tl{
+    top:-70px;
+    left:-80px;
+  }
+
+  .flower-tr{
+    top:-70px;
+    right:-80px;
+  }
+
+  .flower-bl{
+    bottom:-80px;
+    left:-80px;
+  }
+
+  .flower-br{
+    bottom:-80px;
+    right:-80px;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media(max-width:560px){
+
+  .hero{
+    padding:2.4rem 1rem 2rem;
+  }
+
+  .hero-frame{
+    top:22px;
+    right:22px;
+    bottom:22px;
+    left:22px;
+  }
+
+  .hero-inner{
+    max-width:100%;
+
+    padding:
+      2.2rem
+      .4rem
+      5rem;
+  }
+
+  .hero-para{
+    max-width:330px;
+
+    font-size:1.08rem;
+
+    line-height:1.7;
   }
 
 
-  @keyframes stripeMove{
+  /*
+     Keep names on one line.
+     Smaller font on mobile prevents
+     the long bride name from overflowing.
+  */
 
-    from{
-      background-position:0 0;
-    }
+  .couple-name{
+    font-size:clamp(1.65rem,7.5vw,2.5rem);
 
-    to{
-      background-position:208px 0;
-    }
+    white-space:nowrap;
 
+    width:100%;
+  }
+
+
+  /*
+     Parents' names are narrower
+     and can wrap naturally if necessary.
+  */
+
+  .couple-sub{
+    max-width:340px;
+
+    font-size:.82rem;
+
+    line-height:1.5;
+
+    letter-spacing:.07em;
+  }
+
+
+  .amp{
+    font-size:1.7rem;
+
+    margin:.6rem 0;
   }
 
 
   .pill{
-    position:relative;
+    border-radius:140px;
 
-    background:var(--olive);
-
-    width:min(92vw,460px);
-
-    padding:4.2rem 2.4rem 3.4rem;
-
-    border-radius:220px;
-
-    text-align:center;
-
-    box-shadow:0 0 0 1px var(--hairline);
+    padding:
+      3rem
+      1.7rem
+      2.5rem;
   }
 
-
-  .pill .std{
-    line-height:1;
+  .save-date{
+    height:100vh;
+    min-height:100vh;
+    padding:1.5rem 1rem;
+    align-items:center;
   }
-
-
-  .pill .std-word{
-    display:block;
-
-    font-size:clamp(2.6rem,7.5vw,3.6rem);
-
-    line-height:1.2;
-
-    color:var(--wine);
-  }
-
-
-  .pill .std-the{
-    display:block;
-
-    font-family:'EB Garamond',serif;
-
-    font-style:italic;
-
-    font-size:1.05rem;
-
-    letter-spacing:.08em;
-
-    color:var(--wine);
-
-    margin:.5rem 0;
-  }
-
-
-  .pill .sched{
-    margin-top:2.6rem;
-
-    font-size:.86rem;
-
-    letter-spacing:.14em;
-
-    text-transform:uppercase;
-
-    color:var(--cream);
-
-    line-height:2.1;
-  }
-
-
-  .pill .sched .strong{
-    font-weight:600;
-  }
-
-
-  .pill .venue-label{
-    margin-top:1.6rem;
-
-    font-weight:600;
-
-    font-size:.86rem;
-
-    letter-spacing:.2em;
-
-    text-transform:uppercase;
-
-    color:var(--cream);
-  }
-
-
-  .pill .venue-addr{
-    margin-top:.5rem;
-
-    font-size:.86rem;
-
-    letter-spacing:.06em;
-
-    color:var(--cream);
-
-    text-transform:uppercase;
-
-    line-height:1.9;
-  }
-
-
-  /* =========================================================
-     COUNTDOWN
-     ========================================================= */
-
-  .countdown-strip{
-    display:flex;
-
-    justify-content:center;
-
-    gap:2.6rem;
-
-    padding:3.4rem 1rem 1rem;
-
-    text-align:center;
-  }
-
-
-  .countdown-strip .cd-item{
-    min-width:60px;
-  }
-
-
-  .countdown-strip .num{
-    display:block;
-
-    font-family:'EB Garamond',serif;
-
-    font-size:2.6rem;
-
-    font-weight:600;
-
-    color:var(--cream);
-
-    line-height:1;
-  }
-
-
-  .countdown-strip .lbl{
-    display:block;
-
-    margin-top:.4rem;
-
-    font-size:.72rem;
-
-    letter-spacing:.16em;
-
-    text-transform:uppercase;
-
-    color:var(--cream-70);
-  }
-
-
-  @media(max-width:480px){
-
-    .countdown-strip{
-      gap:1.4rem;
-    }
-
-    .countdown-strip .num{
-      font-size:2rem;
-    }
-
-  }
-
-
-  /* =========================================================
-     GENERIC SECTIONS
-     ========================================================= */
 
   .section{
-    padding:6rem 1.6rem;
-
-    max-width:640px;
-
-    margin:0 auto;
-
-    text-align:center;
+    padding:4.5rem 1.2rem;
   }
 
-
-  .section .eyebrow{
-    margin-bottom:1.6rem;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    gap:.8rem;
+  .pill .sched{
+    font-size:.96rem;
   }
 
-
-  .section .eyebrow .rule{
-    width:34px;
-
-    height:1px;
-
-    background:var(--hairline);
+  .ceremony-line{
+    width:140px;
   }
 
-
-  .quote{
-    font-size:1.3rem;
-
-    font-style:italic;
-
-    line-height:1.7;
-
-    color:var(--cream);
+  .pill .venue-addr{
+    font-size:.88rem;
   }
 
+}
 
-  /* =========================================================
-     VERSE SECTION + LARGE CORNER FLOWERS
-     ========================================================= */
 
-  .verse-section{
-    max-width:100%;
+/* =========================================================
+   VERY SMALL PHONES
+   ========================================================= */
 
-    width:100%;
+@media(max-width:380px){
 
-    position:relative;
-
-    overflow:visible;
-
-    padding-top:6rem;
-    padding-bottom:6rem;
+  .hero-frame{
+    top:18px;
+    right:18px;
+    bottom:18px;
+    left:18px;
   }
 
-
-  .verse-section .eyebrow{
-    max-width:640px;
-
-    margin:0 auto 1.6rem auto;
-
-    position:relative;
-
-    z-index:3;
+  .hero-inner{
+    padding-left:.2rem;
+    padding-right:.2rem;
   }
 
+  .couple-name{
+    /*
+       This is specifically for very
+       narrow phones so Laiba's name
+       remains on one line.
+    */
 
-  .verse-section .quote{
-    max-width:640px;
-
-    margin:0 auto;
-
-    position:relative;
-
-    z-index:3;
+    font-size:6.1vw;
   }
 
+  .couple-sub{
+    font-size:.72rem;
 
-  /* =========================================================
-     FLOWER BASE
-     ========================================================= */
+    letter-spacing:.045em;
+
+    max-width:300px;
+  }
+
+}
+
+
+/* =========================================================
+   FLOWERS ON MOBILE
+   ========================================================= */
+
+@media(max-width:700px){
 
   .flower{
-    position:absolute;
-
-    z-index:1;
-
-    pointer-events:none;
-
-    width:clamp(1200px,42vw,1650px);
-
-    max-width:none;
-
-    height:auto;
-
-    opacity:.95;
+    width:330px;
   }
-
-
-  /* =========================================================
-     TOP LEFT — 07.png
-     ========================================================= */
 
   .flower-tl{
-    top:-130px;
-
-    left:-120px;
-
-    transform:rotate(0deg);
+    top:-55px;
+    left:-70px;
   }
-
-
-  /* =========================================================
-     TOP RIGHT — 08.png
-     ========================================================= */
 
   .flower-tr{
-    top:-120px;
-
-    right:-150px;
-
-    transform:rotate(0deg);
+    top:-55px;
+    right:-70px;
   }
-
-
-  /* =========================================================
-     BOTTOM LEFT — 10.png
-     ========================================================= */
 
   .flower-bl{
-    bottom:-320px;
-
-    left:-100px;
-
-    transform:rotate(0deg);
+    bottom:-60px;
+    left:-70px;
   }
-
-
-  /* =========================================================
-     BOTTOM RIGHT — 09.png
-     ========================================================= */
 
   .flower-br{
-    bottom:-320px;
-
-    right:-100px;
-
-    transform:rotate(0deg);
+    bottom:-60px;
+    right:-70px;
   }
 
-
-  /* =========================================================
-     TABLET / SMALL LAPTOP
-     ========================================================= */
-
-  @media(max-width:1000px){
-
-    .flower{
-      width:clamp(280px,43vw,520px);
-    }
+}
 
 
-    .flower-tl{
-      top:-70px;
-      left:-80px;
-    }
+/* =========================================================
+   COUNTDOWN MOBILE
+   ========================================================= */
 
+@media(max-width:480px){
 
-    .flower-tr{
-      top:-70px;
-      right:-80px;
-    }
-
-
-    .flower-bl{
-      bottom:-80px;
-      left:-80px;
-    }
-
-
-    .flower-br{
-      bottom:-80px;
-      right:-80px;
-    }
-
-  }
-
-
-  /* =========================================================
-     MOBILE
-     ========================================================= */
-
-  @media(max-width:700px){
-
-    .flower{
-      width:330px;
-    }
-
-
-    .flower-tl{
-      top:-55px;
-      left:-70px;
-    }
-
-
-    .flower-tr{
-      top:-55px;
-      right:-70px;
-    }
-
-
-    .flower-bl{
-      bottom:-60px;
-      left:-70px;
-    }
-
-
-    .flower-br{
-      bottom:-60px;
-      right:-70px;
-    }
-
-  }
-
-
-  /* =========================================================
-     DUA
-     ========================================================= */
-
-  .dua-ar{
-    font-family:'Amiri',serif;
-
-    font-size:2rem;
-
-    line-height:1.8;
-
-    color:var(--cream);
-
-    direction:rtl;
-  }
-
-
-  .arabic{
-    direction:rtl;
-  }
-
-
-  .dua-translit{
-    margin-top:1rem;
-
-    font-style:italic;
-
-    color:var(--cream-70);
-
-    font-size:.95rem;
-  }
-
-
-  .dua-trans{
-    margin-top:.8rem;
-
-    color:var(--cream-70);
-
-    font-size:.95rem;
-  }
-
-
-  /* =========================================================
-     RSVP
-     ========================================================= */
-
-  .rsvp{
-    display:flex;
-
-    flex-direction:column;
-
+  .countdown-strip{
     gap:1.4rem;
-
-    max-width:480px;
-
-    margin:0 auto;
-
-    text-align:left;
   }
 
-
-  .field{
-    display:flex;
-
-    flex-direction:column;
-
-    gap:.5rem;
+  .countdown-strip .num{
+    font-size:2rem;
   }
 
+}
 
-  .field label{
-    font-size:.82rem;
 
-    letter-spacing:.12em;
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
 
-    text-transform:uppercase;
+@media(prefers-reduced-motion:reduce){
 
-    color:var(--cream-70);
+  *{
+    animation:none !important;
+
+    transition:none !important;
+
+    scroll-behavior:auto !important;
   }
 
+  .reveal{
+    opacity:1;
 
-  .field input,
-  .field select,
-  .field textarea{
-    width:100%;
-
-    padding:.8rem .9rem;
-
-    border:1px solid var(--hairline);
-
-    border-radius:2px;
-
-    background:transparent;
-
-    color:var(--cream);
-
-    font-family:'EB Garamond',serif;
-
-    font-size:1rem;
-
-    outline:none;
+    transform:none;
   }
 
-
-  .field input:focus,
-  .field select:focus,
-  .field textarea:focus{
-    border-color:var(--olive);
-  }
-
-
-  .field select option{
-    color:#000;
-  }
-
-
-  .field textarea{
-    resize:vertical;
-
-    min-height:100px;
-  }
-
-
-  .radio-row{
-    display:flex;
-
-    flex-direction:column;
-
-    gap:.7rem;
-  }
-
-
-  .radio-row label{
-    display:flex;
-
-    flex-direction:row;
-
-    align-items:center;
-
-    gap:.6rem;
-
-    text-transform:none;
-
-    letter-spacing:0;
-
-    font-size:.95rem;
-
-    color:var(--cream);
-  }
-
-
-  .radio-row input{
-    accent-color:var(--olive);
-  }
-
-
-  .rsvp-submit{
-    margin-top:.5rem;
-
-    padding:.85rem 1.2rem;
-
-    border:1px solid var(--olive);
-
-    background:var(--olive);
-
-    color:var(--wine);
-
-    font-family:'EB Garamond',serif;
-
-    font-size:.9rem;
-
-    letter-spacing:.16em;
-
-    text-transform:uppercase;
-
-    cursor:pointer;
-
-    transition:all .25s ease;
-  }
-
-
-  .rsvp-submit:hover{
-    background:var(--cream);
-
-    border-color:var(--cream);
-  }
-
-
-  .rsvp.hide{
-    display:none;
-  }
-
-
-  .rsvp-confirm{
-    display:none;
-
-    text-align:center;
-
-    animation:fadeIn .7s ease forwards;
-  }
-
-
-  .rsvp-confirm.show{
-    display:block;
-  }
-
-
-  @keyframes fadeIn{
-
-    from{
-      opacity:0;
-      transform:translateY(8px);
-    }
-
-    to{
-      opacity:1;
-      transform:translateY(0);
-    }
-
-  }
-
-
-  /* =========================================================
-     FOOTER
-     ========================================================= */
-
-  footer{
-    text-align:center;
-
-    padding:4.5rem 1.6rem 3rem;
-
-    border-top:1px solid var(--hairline);
-  }
-
-
-  footer .script-name{
-    font-size:2.4rem;
-
-    color:var(--olive);
-  }
-
-
-  footer p{
-    color:var(--cream-70);
-
-    font-size:.86rem;
-
-    letter-spacing:.06em;
-
-    margin-top:.6rem;
-
-    text-transform:uppercase;
-  }
-
-
-  @media(max-width:560px){
-
-    .pill{
-      border-radius:140px;
-
-      padding:3.4rem 1.6rem 2.8rem;
-    }
-
-
-    .save-date{
-      padding:4.5rem 1rem;
-    }
-
-
-    .section{
-      padding:4.5rem 1.2rem;
-    }
-
-  }
-
-
-  @media(max-width:380px){
-
-    .couple-name{
-      font-size:6.6vw;
-    }
-
-  }
-
-
-  @media(prefers-reduced-motion:reduce){
-
-    *{
-      animation:none !important;
-      transition:none !important;
-      scroll-behavior:auto !important;
-    }
-
-
-    .reveal{
-      opacity:1;
-
-      transform:none;
-    }
-
-  }
+}
 
 </style>
 </head>
@@ -986,55 +1042,74 @@
 
 
 <!-- =========================================================
-     HERO / INVITATION CARD
+     HERO
      ========================================================= -->
 
 <section class="hero">
 
   <div class="hero-frame"></div>
 
-
   <div class="hero-inner reveal" id="heroReveal">
 
-    <div class="eyebrow">
+    <div class="eyebrow garamond-font">
       With the blessings of Almighty Allah (SWT)
     </div>
 
 
-    <p class="hero-para">
+    <p class="hero-para garamond-font">
 
-      Mrs. Farida Jamal &amp; Mr. Mohd. Hadis Lari cordially request
-      the honour of your gracious presence and blessings on the
-      auspicious occasion of the <em>Nikah</em> of their beloved daughter
+      <span class="garamond-font">
+        Mrs. Farida Jamal &amp; Mr. Mohd. Hadis Lari
+      </span>
+
+      cordially request the honour of your gracious presence
+      and blessings on the auspicious occasion of the
+      <em>Nikah</em> of their beloved daughter
 
     </p>
 
 
+    <!-- =====================================================
+         COUPLE NAMES
+         ===================================================== -->
+
     <div class="couple-block">
 
-      <div class="couple-name script-name">
+
+      <!-- BRIDE -->
+
+      <div class="couple-name aniyah-font">
         Laiba Aaliya Hadis
       </div>
 
 
-      <div class="couple-sub">
+      <!-- BRIDE'S PARENTS -->
+
+      <div class="couple-sub garamond-font">
         Mrs. Farida Jamal &amp; Mr. Mohd. Hadis Lari
       </div>
 
+
+      <!-- AMPERSAND -->
 
       <span class="amp">
         &amp;
       </span>
 
 
-      <div class="couple-name script-name">
+      <!-- GROOM -->
+
+      <div class="couple-name aniyah-font">
         Yasir Aftab
       </div>
 
 
-      <div class="couple-sub">
+      <!-- GROOM'S PARENTS -->
+
+      <div class="couple-sub garamond-font">
         Dr. Shaheen Siddiqui &amp; Dr. Aftab Mustaquim
       </div>
+
 
     </div>
 
@@ -1052,9 +1127,12 @@
 
   <div class="pill reveal" id="pillReveal">
 
+
+    <!-- SAVE THE DATE -->
+
     <div class="std">
 
-      <span class="std-word script-date">
+      <span class="std-word aniyah-font">
         Save
       </span>
 
@@ -1062,36 +1140,44 @@
         the
       </span>
 
-      <span class="std-word script-date">
+      <span class="std-word aniyah-font">
         Date
       </span>
 
     </div>
 
 
-    <div class="sched">
+    <!-- EVENT DETAILS -->
+
+    <div class="sched garamond-font">
+
+      <span class="ceremony-line"></span>
 
       Nikah Ceremony<br>
 
       Thursday, 22nd October 2026<br>
 
-      <span class="strong">
+      <span class="strong garamond-font">
         Arrival of Baraat: 7:30 PM
       </span><br>
 
-      <span class="strong">
+      <span class="strong garamond-font">
         Nikah: 8:00 PM
       </span>
+
+      <span class="ceremony-line"></span>
 
     </div>
 
 
-    <div class="venue-label">
+    <!-- VENUE -->
+
+    <div class="venue-label garamond-font">
       Venue
     </div>
 
 
-    <div class="venue-addr">
+    <div class="venue-addr garamond-font">
 
       Jamia Community Centre<br>
 
@@ -1112,6 +1198,7 @@
      ========================================================= -->
 
 <div class="countdown-strip">
+
 
   <div class="cd-item">
 
@@ -1164,18 +1251,18 @@
 
   </div>
 
+
 </div>
 
 
 
 <!-- =========================================================
-     VERSE — THIRD PAGE WITH FLOWERS
+     VERSE
      ========================================================= -->
 
 <section class="section reveal verse-section">
 
 
-  <!-- TOP LEFT — 07.png -->
   <img
     src="images/07.png"
     alt=""
@@ -1183,7 +1270,6 @@
   >
 
 
-  <!-- TOP RIGHT — 08.png -->
   <img
     src="images/08.png"
     alt=""
@@ -1191,7 +1277,6 @@
   >
 
 
-  <!-- BOTTOM LEFT — 10.png -->
   <img
     src="images/10.png"
     alt=""
@@ -1199,7 +1284,6 @@
   >
 
 
-  <!-- BOTTOM RIGHT — 09.png -->
   <img
     src="images/09.png"
     alt=""
@@ -1207,7 +1291,7 @@
   >
 
 
-  <div class="eyebrow">
+  <div class="eyebrow garamond-font">
 
     <span class="rule"></span>
 
@@ -1218,7 +1302,7 @@
   </div>
 
 
-  <p class="quote">
+  <p class="quote garamond-font">
 
     "And among His signs is that He created for you spouses
     from among yourselves that you may find tranquility in them;
@@ -1226,6 +1310,7 @@
     in that are signs for people who reflect."
 
   </p>
+
 
 </section>
 
@@ -1237,6 +1322,7 @@
 
 <section class="section reveal">
 
+
   <div class="dua-ar arabic">
 
     بارك الله لكما وبارك عليكما وجمع بينكما في خير
@@ -1244,178 +1330,20 @@
   </div>
 
 
-  <div class="dua-translit">
+  <div class="dua-translit garamond-font">
 
     Barakallahu lakuma wa baraka 'alaykuma wa jama'a baynakuma fi khayr.
 
   </div>
 
 
-  <div class="dua-trans">
+  <div class="dua-trans garamond-font">
 
     "May Allah bless you both, shower His blessings upon you,
     and unite you together in goodness."
 
   </div>
 
-</section>
-
-
-
-<!-- =========================================================
-     RSVP FORM
-     ========================================================= -->
-
-<section class="section reveal">
-
-  <div class="eyebrow">
-
-    <span class="rule"></span>
-
-    RSVP
-
-    <span class="rule"></span>
-
-  </div>
-
-
-  <div class="r-names" style="margin-bottom:2.2rem;">
-
-    Mrs. Farida Jamal &amp; Mr. Mohd. Hadis Lari
-
-  </div>
-
-
-  <form class="rsvp" id="rsvpForm">
-
-
-    <div class="field">
-
-      <label for="name">
-        Your name
-      </label>
-
-      <input
-        id="name"
-        type="text"
-        required
-      >
-
-    </div>
-
-
-    <div class="field">
-
-      <label>
-        Will you be attending?
-      </label>
-
-
-      <div class="radio-row">
-
-        <label>
-
-          <input
-            type="radio"
-            name="attend"
-            value="yes"
-            checked
-          >
-
-          Joyfully accepts
-
-        </label>
-
-
-        <label>
-
-          <input
-            type="radio"
-            name="attend"
-            value="no"
-          >
-
-          Regretfully declines
-
-        </label>
-
-      </div>
-
-    </div>
-
-
-    <div class="field">
-
-      <label for="guests">
-        Number of guests
-      </label>
-
-
-      <select id="guests">
-
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
-        <option>4</option>
-        <option>5</option>
-
-      </select>
-
-    </div>
-
-
-    <div class="field">
-
-      <label for="msg">
-        Message for the couple (optional)
-      </label>
-
-
-      <textarea
-        id="msg"
-        rows="3"
-      ></textarea>
-
-    </div>
-
-
-    <button
-      type="submit"
-      class="rsvp-submit"
-    >
-
-      Send RSVP
-
-    </button>
-
-  </form>
-
-
-  <div
-    class="rsvp-confirm"
-    id="rsvpConfirm"
-  >
-
-    <div
-      class="script-date"
-      style="font-size:2.2rem;color:#6c7246;"
-    >
-
-      Jazakallah Khair
-
-    </div>
-
-
-    <p
-      style="color:var(--cream-70);margin-top:.6rem;"
-    >
-
-      Your response has been recorded.
-      We can't wait to celebrate with you.
-
-    </p>
-
-  </div>
 
 </section>
 
@@ -1427,151 +1355,138 @@
 
 <footer>
 
-  <div class="script-name">
+
+  <div class="script-name aniyah-font">
 
     Laiba &amp; Yasir
 
   </div>
 
 
-  <p>
+  <p class="garamond-font">
 
     22nd October 2026 &middot; New Delhi
 
   </p>
 
 
-  <p>
+  <p class="garamond-font">
 
-    RSVP &mdash; Mrs. Farida Jamal &amp; Mr. Mohd. Hadis Lari
+    For enquiries &mdash;
+    Mrs. Farida Jamal &amp; Mr. Mohd. Hadis Lari
     &middot; +91 95994 76442
 
   </p>
+
 
 </footer>
 
 
 
+<!-- =========================================================
+     JAVASCRIPT
+     ========================================================= -->
+
 <script>
 
 
-  /* =========================================================
-     COUNTDOWN
-     ========================================================= */
+/* =========================================================
+   COUNTDOWN
+   ========================================================= */
 
-  const target =
-    new Date("2026-10-22T20:00:00+05:30").getTime();
-
-
-  function tick(){
-
-    const diff =
-      Math.max(0,target-Date.now());
+const target =
+  new Date("2026-10-22T20:00:00+05:30").getTime();
 
 
-    const d =
-      Math.floor(diff/86400000);
+function tick(){
+
+  const diff =
+    Math.max(0, target - Date.now());
 
 
-    const h =
-      Math.floor(
-        (diff%86400000)/3600000
-      );
+  const d =
+    Math.floor(diff / 86400000);
 
 
-    const m =
-      Math.floor(
-        (diff%3600000)/60000
-      );
-
-
-    const s =
-      Math.floor(
-        (diff%60000)/1000
-      );
-
-
-    const pad =
-      n => String(n).padStart(2,'0');
-
-
-    document.getElementById('cd-days').textContent =
-      pad(d);
-
-
-    document.getElementById('cd-hours').textContent =
-      pad(h);
-
-
-    document.getElementById('cd-mins').textContent =
-      pad(m);
-
-
-    document.getElementById('cd-secs').textContent =
-      pad(s);
-
-  }
-
-
-  tick();
-
-  setInterval(tick,1000);
-
-
-
-  /* =========================================================
-     RSVP
-     ========================================================= */
-
-  document
-    .getElementById('rsvpForm')
-    .addEventListener('submit',function(e){
-
-      e.preventDefault();
-
-      this.classList.add('hide');
-
-      document
-        .getElementById('rsvpConfirm')
-        .classList.add('show');
-
-    });
-
-
-
-  /* =========================================================
-     SCROLL REVEAL
-     ========================================================= */
-
-  const io =
-    new IntersectionObserver(
-
-      (entries) => {
-
-        entries.forEach(en => {
-
-          if(en.isIntersecting){
-
-            en.target.classList.add('in');
-
-            io.unobserve(en.target);
-
-          }
-
-        });
-
-      },
-
-      {
-        threshold:.2
-      }
-
+  const h =
+    Math.floor(
+      (diff % 86400000) / 3600000
     );
 
 
-  document
-    .querySelectorAll('.reveal')
-    .forEach(el => io.observe(el));
+  const m =
+    Math.floor(
+      (diff % 3600000) / 60000
+    );
+
+
+  const s =
+    Math.floor(
+      (diff % 60000) / 1000
+    );
+
+
+  const pad =
+    n => String(n).padStart(2, '0');
+
+
+  document.getElementById('cd-days').textContent =
+    pad(d);
+
+
+  document.getElementById('cd-hours').textContent =
+    pad(h);
+
+
+  document.getElementById('cd-mins').textContent =
+    pad(m);
+
+
+  document.getElementById('cd-secs').textContent =
+    pad(s);
+
+}
+
+
+tick();
+
+setInterval(tick, 1000);
+
+
+
+/* =========================================================
+   SCROLL REVEAL
+   ========================================================= */
+
+const io =
+  new IntersectionObserver(
+
+    (entries) => {
+
+      entries.forEach(en => {
+
+        if(en.isIntersecting){
+
+          en.target.classList.add('in');
+
+          io.unobserve(en.target);
+
+        }
+
+      });
+
+    },
+
+    {
+      threshold:.2
+    }
+
+  );
+
+
+document
+  .querySelectorAll('.reveal')
+  .forEach(el => io.observe(el));
 
 
 </script>
