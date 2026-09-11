@@ -4,340 +4,212 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Laiba & Yasir — Nikah Invitation</title>
+<title>Laiba &amp; Yasir — Nikah Invitation</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Pinyon+Script&family=Mrs+Saint+Delafield&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
 
 <style>
 
-/* =========================================================
-   ANIYAH FONT
-========================================================= */
+:root{
+  --wine:#370015;
+  --olive:#6c7246;
+  --olive-deep:#4f5735;
+  --cream:#fff1da;
+  --hairline:rgba(255,241,218,.4);
+  --cream-70:rgba(255,241,218,.7);
+  --cream-55:rgba(255,241,218,.55);
+}
 
-@font-face {
-  font-family: 'Aniyah';
-  src: url('Aniyah.woff2') format('woff2'),
-       url('Aniyah.woff') format('woff'),
-       url('Aniyah.ttf') format('truetype');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  background:var(--wine);
+  color:var(--cream);
+  font-family:'EB Garamond',serif;
+  font-size:18px;
+  line-height:1.7;
+  overflow-x:hidden;
+}
+
+::selection{
+  background:var(--olive);
+  color:var(--cream);
+}
+
+a{
+  color:inherit;
+}
+
+.script-name{
+  font-family:'Pinyon Script',cursive;
+  font-weight:400;
+}
+
+.script-date{
+  font-family:'Mrs Saint Delafield',cursive;
+  font-weight:400;
+}
+
+.eyebrow{
+  font-size:.78rem;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  color:var(--cream);
+}
+
+.reveal{
+  opacity:0;
+  transform:translateY(18px);
+  transition:opacity .9s ease,transform .9s ease;
+}
+
+.reveal.in{
+  opacity:1;
+  transform:translateY(0);
+}
+
+.motif{
+  display:block;
+  margin:0 auto;
 }
 
 
 /* =========================================================
-   VARIABLES
+   HERO
 ========================================================= */
 
-:root {
-  --wine: #4b061b;
-  --wine-dark: #360012;
-  --wine-light: #650a26;
+.hero{
+  position:relative;
+  min-height:100vh;
 
-  --olive: #6c7246;
-  --olive-deep: #4f5735;
+  padding:3.4rem 1.6rem 2.4rem;
 
-  --cream: #fff1da;
-  --cream-70: rgba(255, 241, 218, .70);
-  --cream-55: rgba(255, 241, 218, .55);
-
-  --emboss-light: rgba(255, 202, 214, .24);
-  --emboss-dark: rgba(32, 0, 12, .65);
-
-  --hairline: rgba(255, 241, 218, .38);
-}
-
-
-/* =========================================================
-   RESET
-========================================================= */
-
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  background: var(--wine-dark);
-  color: var(--cream);
-
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 18px;
-  line-height: 1.7;
-
-  overflow-x: hidden;
-}
-
-::selection {
-  background: var(--olive);
-  color: var(--cream);
-}
-
-a {
-  color: inherit;
-}
-
-
-/* =========================================================
-   TYPOGRAPHY
-========================================================= */
-
-/* LAIBA & YASIR NAMES */
-.script-name {
-  font-family: 'Aniyah', cursive;
-  font-weight: 400;
-}
-
-/* SAVE THE DATE */
-.script-date {
-  font-family: 'Aniyah', cursive;
-  font-weight: 400;
-}
-
-/* PARENTS + EVENT DETAILS */
-.couple-sub,
-.hero-para,
-.pill .sched,
-.pill .venue-label,
-.pill .venue-addr,
-.r-names {
-  font-family: 'Cormorant Garamond', serif;
-}
-
-
-/* =========================================================
-   SCROLL REVEAL
-========================================================= */
-
-.reveal {
-  opacity: 0;
-  transform: translateY(18px);
-
-  transition:
-    opacity .9s ease,
-    transform .9s ease;
-}
-
-.reveal.in {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-
-/* =========================================================
-   HERO / EMBOSSED INVITATION
-========================================================= */
-
-.hero {
-  position: relative;
-
-  min-height: 100svh;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  padding:
-    clamp(5rem, 10vh, 7rem)
-    clamp(1.2rem, 5vw, 4rem)
-    clamp(4rem, 8vh, 6rem);
-
-  background:
-    radial-gradient(
-      ellipse at center,
-      var(--wine-light) 0%,
-      var(--wine) 45%,
-      var(--wine-dark) 100%
-    );
-
-  overflow: hidden;
-}
-
-
-/* ---------------------------------------------------------
-   SUBTLE PAPER TEXTURE
---------------------------------------------------------- */
-
-.hero::after {
-  content: "";
-
-  position: absolute;
-  inset: 0;
-
-  pointer-events: none;
-
-  opacity: .16;
+  display:flex;
+  align-items:center;
+  justify-content:center;
 
   background-image:
-    repeating-linear-gradient(
-      0deg,
-      rgba(255,255,255,.025) 0px,
-      rgba(255,255,255,.025) 1px,
-      transparent 1px,
-      transparent 3px
-    ),
-    repeating-linear-gradient(
-      90deg,
-      rgba(0,0,0,.018) 0px,
-      rgba(0,0,0,.018) 1px,
-      transparent 1px,
-      transparent 4px
-    );
+    linear-gradient(#37001599,#370015cc),
+    url('images/background.png');
+
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
 }
 
-
-/* =========================================================
-   EMBOSSED SVG
-========================================================= */
-
-.embossed-art {
-  position: absolute;
-
-  width: 115%;
-  height: 115%;
-
-  left: -7.5%;
-  top: -7.5%;
-
-  z-index: 1;
-
-  pointer-events: none;
-
-  opacity: .92;
-
-  overflow: visible;
+.hero-frame{
+  position:absolute;
+  inset:28px;
+  border:1px solid var(--hairline);
+  pointer-events:none;
 }
 
+@media(min-width:640px){
 
-/* =========================================================
-   CARD FRAME
-========================================================= */
+  .hero-frame{
+    inset:44px;
+  }
 
-.hero-frame {
-  position: absolute;
-
-  inset: clamp(20px, 4vw, 48px);
-
-  border: 1px solid var(--hairline);
-
-  z-index: 3;
-
-  pointer-events: none;
 }
 
-.hero-frame::after {
-  content: "";
+.hero-inner{
+  position:relative;
+  z-index:2;
 
-  position: absolute;
+  max-width:560px;
+  width:100%;
 
-  inset: 6px;
+  text-align:center;
 
-  border: 1px solid rgba(255,241,218,.08);
+  padding:2.4rem 1.2rem 8rem;
 }
 
+.hero-para{
+  max-width:420px;
 
-/* =========================================================
-   HERO CONTENT
-========================================================= */
+  margin:1.6rem auto 0;
 
-.hero-inner {
-  position: relative;
+  font-size:1.02rem;
 
-  z-index: 5;
+  color:var(--cream-70);
 
-  width: 100%;
-  max-width: 650px;
-
-  text-align: center;
-
-  padding:
-    2rem
-    clamp(1rem, 4vw, 2.5rem)
-    5rem;
-
-  text-shadow:
-    1px 1px 1px rgba(255,255,255,.10),
-    -1px -1px 1px rgba(20,0,8,.35);
+  line-height:1.75;
 }
 
-
-/* =========================================================
-   HERO TEXT
-========================================================= */
-
-.hero-para {
-  max-width: 460px;
-
-  margin: 1.6rem auto 0;
-
-  font-size: clamp(.95rem, 2vw, 1.05rem);
-
-  color: var(--cream-70);
-
-  line-height: 1.8;
+.hero-para em{
+  font-style:italic;
 }
 
-.hero-para em {
-  font-style: italic;
+.couple-block{
+  margin-top:1.6rem;
 }
 
-
-/* =========================================================
-   COUPLE
-========================================================= */
-
-.couple-block {
-  margin-top: 2rem;
+.couple-name{
+  font-size:clamp(2.1rem,7.4vw,3.3rem);
+  line-height:1.1;
+  color:var(--cream);
+  white-space:nowrap;
 }
 
-.couple-name {
-  font-family: 'Aniyah', cursive;
+.couple-sub{
+  margin-top:.3rem;
 
-  font-size: clamp(
-    2.2rem,
-    7vw,
-    4rem
-  );
+  font-style:italic;
 
-  line-height: 1.08;
+  font-size:.8rem;
 
-  color: var(--cream);
+  letter-spacing:.1em;
 
-  white-space: nowrap;
+  text-transform:uppercase;
+
+  color:var(--cream-70);
 }
 
-.couple-sub {
-  margin-top: .35rem;
+.amp{
+  font-family:'Pinyon Script',cursive;
 
-  font-style: italic;
+  font-size:1.9rem;
 
-  font-size: clamp(.72rem, 1.8vw, .82rem);
+  color:var(--cream);
 
-  letter-spacing: .10em;
+  margin:.7rem 0;
 
-  text-transform: uppercase;
-
-  color: var(--cream-70);
+  display:block;
 }
 
-.amp {
-  display: block;
+.rsvp-mini{
+  margin-top:2.8rem;
+}
 
-  margin: .7rem 0;
+.rsvp-mini .r-label{
+  font-weight:600;
 
-  font-family: 'Aniyah', cursive;
+  font-size:.86rem;
 
-  font-size: 2rem;
+  letter-spacing:.2em;
 
-  color: var(--cream);
+  margin-bottom:.5rem;
+}
+
+.r-names{
+  font-size:.86rem;
+
+  letter-spacing:.1em;
+
+  text-transform:uppercase;
+
+  color:var(--cream-70);
 }
 
 
@@ -345,147 +217,130 @@ a {
    SAVE THE DATE
 ========================================================= */
 
-.save-date {
-  position: relative;
+.save-date{
+  position:relative;
 
-  padding: 7rem 1.4rem;
+  padding:6rem 1.4rem;
 
-  background:
-    repeating-linear-gradient(
-      90deg,
-      var(--wine) 0px,
-      var(--wine) 26px,
-      var(--cream) 26px,
-      var(--cream) 52px
-    );
-
-  background-size: 208px 100%;
-
-  animation: stripeMove 16s linear infinite;
-
-  display: flex;
-
-  justify-content: center;
-
-  overflow: hidden;
-}
-
-@keyframes stripeMove {
-  from {
-    background-position: 0 0;
-  }
-
-  to {
-    background-position: 208px 0;
-  }
-}
-
-
-/* =========================================================
-   SAVE DATE PILL
-========================================================= */
-
-.pill {
-  position: relative;
-
-  background: var(--olive);
-
-  width: min(92vw, 460px);
-
-  padding:
-    4.5rem
-    2.4rem
-    3.5rem;
-
-  border-radius: 220px;
-
-  text-align: center;
-
-  box-shadow:
-    0 0 0 1px var(--hairline),
-    inset 0 0 40px rgba(0,0,0,.08);
-}
-
-.pill .std {
-  line-height: 1;
-}
-
-.pill .std-word {
-  display: block;
-
-  font-family: 'Aniyah', cursive;
-
-  font-size: clamp(
-    2.8rem,
-    8vw,
-    3.8rem
+  background:repeating-linear-gradient(
+    90deg,
+    var(--wine) 0px,
+    var(--wine) 26px,
+    var(--cream) 26px,
+    var(--cream) 52px
   );
 
-  line-height: 1.2;
+  background-size:208px 100%;
 
-  color: var(--wine-dark);
+  animation:stripeMove 16s linear infinite;
+
+  display:flex;
+
+  justify-content:center;
 }
 
-.pill .std-the {
-  display: block;
+@keyframes stripeMove{
 
-  font-family: 'Cormorant Garamond', serif;
+  from{
+    background-position:0 0;
+  }
 
-  font-style: italic;
+  to{
+    background-position:208px 0;
+  }
 
-  font-size: 1.05rem;
-
-  letter-spacing: .08em;
-
-  color: var(--wine-dark);
-
-  margin: .5rem 0;
 }
 
-.pill .sched {
-  margin-top: 2.6rem;
+.pill{
+  position:relative;
 
-  font-size: .95rem;
+  background:var(--olive);
 
-  letter-spacing: .10em;
+  width:min(92vw,460px);
 
-  text-transform: uppercase;
+  padding:4.2rem 2.4rem 3.4rem;
 
-  color: var(--cream);
+  border-radius:220px;
 
-  line-height: 2.1;
+  text-align:center;
+
+  box-shadow:0 0 0 1px var(--hairline);
 }
 
-.pill .sched .strong {
-  font-weight: 600;
+.pill .std{
+  line-height:1;
 }
 
-.pill .venue-label {
-  margin-top: 1.6rem;
+.pill .std-word{
+  display:block;
 
-  font-weight: 600;
+  font-size:clamp(2.6rem,7.5vw,3.6rem);
 
-  font-size: .95rem;
+  line-height:1.2;
 
-  letter-spacing: .18em;
-
-  text-transform: uppercase;
-
-  color: var(--cream);
+  color:var(--wine);
 }
 
-.pill .venue-addr {
-  margin-top: .5rem;
+.pill .std-the{
+  display:block;
 
-  font-size: .95rem;
+  font-family:'EB Garamond',serif;
 
-  letter-spacing: .06em;
+  font-style:italic;
 
-  color: var(--cream);
+  font-size:1.05rem;
 
-  text-transform: uppercase;
+  letter-spacing:.08em;
 
-  line-height: 1.9;
+  color:var(--wine);
+
+  margin:.5rem 0;
+}
+
+.pill .sched{
+  margin-top:2.6rem;
+
+  font-size:.86rem;
+
+  letter-spacing:.14em;
+
+  text-transform:uppercase;
+
+  color:var(--cream);
+
+  line-height:2.1;
+}
+
+.pill .sched .strong{
+  font-weight:600;
+}
+
+.pill .venue-label{
+  margin-top:1.6rem;
+
+  font-weight:600;
+
+  font-size:.86rem;
+
+  letter-spacing:.2em;
+
+  text-transform:uppercase;
+
+  color:var(--cream);
+}
+
+.pill .venue-addr{
+  margin-top:.5rem;
+
+  font-size:.86rem;
+
+  letter-spacing:.06em;
+
+  color:var(--cream);
+
+  text-transform:uppercase;
+
+  line-height:1.9;
 }
 
 
@@ -493,51 +348,60 @@ a {
    COUNTDOWN
 ========================================================= */
 
-.countdown-strip {
-  display: flex;
+.countdown-strip{
+  display:flex;
 
-  justify-content: center;
+  justify-content:center;
 
-  gap: 2.6rem;
+  gap:2.6rem;
 
-  padding:
-    3.4rem
-    1rem
-    1rem;
+  padding:3.4rem 1rem 1rem;
 
-  text-align: center;
+  text-align:center;
 }
 
-.countdown-strip .cd-item {
-  min-width: 60px;
+.countdown-strip .cd-item{
+  min-width:60px;
 }
 
-.countdown-strip .num {
-  display: block;
+.countdown-strip .num{
+  display:block;
 
-  font-family: 'Cormorant Garamond', serif;
+  font-family:'EB Garamond',serif;
 
-  font-size: 2.6rem;
+  font-size:2.6rem;
 
-  font-weight: 600;
+  font-weight:600;
 
-  color: var(--cream);
+  color:var(--cream);
 
-  line-height: 1;
+  line-height:1;
 }
 
-.countdown-strip .lbl {
-  display: block;
+.countdown-strip .lbl{
+  display:block;
 
-  margin-top: .4rem;
+  margin-top:.4rem;
 
-  font-size: .72rem;
+  font-size:.72rem;
 
-  letter-spacing: .16em;
+  letter-spacing:.16em;
 
-  text-transform: uppercase;
+  text-transform:uppercase;
 
-  color: var(--cream-70);
+  color:var(--cream-70);
+}
+
+@media(max-width:480px){
+
+  .countdown-strip{
+    gap:1.4rem;
+  }
+
+  .countdown-strip .num{
+    font-size:2rem;
+  }
+
 }
 
 
@@ -545,100 +409,472 @@ a {
    GENERIC SECTIONS
 ========================================================= */
 
-.section {
-  padding: 6rem 1.6rem;
+.section{
+  padding:6rem 1.6rem;
 
-  max-width: 640px;
+  max-width:640px;
 
-  margin: 0 auto;
+  margin:0 auto;
 
-  text-align: center;
+  text-align:center;
 }
 
-.section .eyebrow {
-  margin-bottom: 1.6rem;
+.section .eyebrow{
+  margin-bottom:1.6rem;
 
-  display: flex;
+  display:flex;
 
-  align-items: center;
+  align-items:center;
 
-  justify-content: center;
+  justify-content:center;
 
-  gap: .8rem;
+  gap:.8rem;
 }
 
-.section .eyebrow .rule {
-  width: 34px;
+.section .eyebrow .rule{
+  width:34px;
 
-  height: 1px;
+  height:1px;
 
-  background: var(--hairline);
+  background:var(--hairline);
 }
 
+.quote{
+  font-size:1.3rem;
 
-/* =========================================================
-   QUOTE
-========================================================= */
+  font-style:italic;
 
-.quote {
-  font-size: 1.3rem;
+  line-height:1.7;
 
-  font-style: italic;
-
-  line-height: 1.7;
-
-  color: var(--cream);
-}
-
-.cite {
-  margin-top: 1.2rem;
-
-  font-size: .82rem;
-
-  letter-spacing: .14em;
-
-  text-transform: uppercase;
-
-  color: var(--cream-70);
+  color:var(--cream);
 }
 
 
 /* =========================================================
-   DUA
+   VERSE SECTION + LARGE CORNER FLOWERS
 ========================================================= */
 
-.arabic {
-  font-family: 'Amiri', serif;
+.verse-section{
 
-  direction: rtl;
+  max-width:100%;
+
+  width:100%;
+
+  position:relative;
+
+  overflow:visible;
+
+  padding-top:6rem;
+  padding-bottom:6rem;
 }
 
-.dua-ar {
-  font-size: 1.7rem;
+.verse-section .eyebrow{
 
-  line-height: 2.1;
+  max-width:640px;
 
-  margin-bottom: 1rem;
+  margin:0 auto 1.6rem auto;
+
+  position:relative;
+
+  z-index:3;
 }
 
-.dua-translit {
-  font-style: italic;
+.verse-section .quote{
 
-  color: var(--olive);
+  max-width:640px;
 
-  font-size: .98rem;
+  margin:0 auto;
 
-  margin-bottom: .7rem;
+  position:relative;
+
+  z-index:3;
 }
 
-.dua-trans {
-  color: var(--cream-70);
 
-  font-size: .95rem;
+/* =========================================================
+   FLOWER BASE
+========================================================= */
 
-  max-width: 440px;
+.flower{
 
-  margin: 0 auto;
+  position:absolute;
+
+  z-index:1;
+
+  pointer-events:none;
+
+  width:clamp(1200px,42vw,1650px);
+
+  max-width:none;
+
+  height:auto;
+
+  opacity:.95;
+}
+
+
+/* =========================================================
+   TOP LEFT — 07.png
+========================================================= */
+
+.flower-tl{
+
+  top:-130px;
+
+  left:-120px;
+
+  transform:rotate(0deg);
+}
+
+
+/* =========================================================
+   TOP RIGHT — 08.png
+========================================================= */
+
+.flower-tr{
+
+  top:-120px;
+
+  right:-150px;
+
+  transform:rotate(0deg);
+}
+
+
+/* =========================================================
+   BOTTOM LEFT — 10.png
+========================================================= */
+
+.flower-bl{
+
+  bottom:-320px;
+
+  left:-100px;
+
+  transform:rotate(0deg);
+}
+
+
+/* =========================================================
+   BOTTOM RIGHT — 09.png
+========================================================= */
+
+.flower-br{
+
+  bottom:-320px;
+
+  right:-100px;
+
+  transform:rotate(0deg);
+}
+
+
+/* =========================================================
+   TABLET / SMALL LAPTOP
+========================================================= */
+
+@media(max-width:1000px){
+
+  .flower{
+    width:clamp(280px,43vw,520px);
+  }
+
+  .flower-tl{
+    top:-70px;
+    left:-80px;
+  }
+
+  .flower-tr{
+    top:-70px;
+    right:-80px;
+  }
+
+  .flower-bl{
+    bottom:-80px;
+    left:-80px;
+  }
+
+  .flower-br{
+    bottom:-80px;
+    right:-80px;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:700px){
+
+  .flower{
+    width:330px;
+  }
+
+  .flower-tl{
+    top:-55px;
+    left:-70px;
+  }
+
+  .flower-tr{
+    top:-55px;
+    right:-70px;
+  }
+
+  .flower-bl{
+    bottom:-60px;
+    left:-70px;
+  }
+
+  .flower-br{
+    bottom:-60px;
+    right:-70px;
+  }
+
+}
+
+
+/* =========================================================
+   VERY SMALL MOBILE
+========================================================= */
+
+@media(max-width:420px){
+
+  .flower{
+    width:270px;
+  }
+
+  .flower-tl{
+    top:-35px;
+    left:-55px;
+  }
+
+  .flower-tr{
+    top:-35px;
+    right:-55px;
+  }
+
+  .flower-bl{
+    bottom:-40px;
+    left:-55px;
+  }
+
+  .flower-br{
+    bottom:-40px;
+    right:-55px;
+  }
+
+}
+
+
+/* =========================================================
+   REMAINING SECTIONS
+========================================================= */
+
+.cite{
+  margin-top:1.2rem;
+
+  font-size:.82rem;
+
+  letter-spacing:.14em;
+
+  text-transform:uppercase;
+
+  color:var(--cream-70);
+}
+
+.arabic{
+  font-family:'Amiri',serif;
+
+  direction:rtl;
+}
+
+.dua-ar{
+  font-size:1.7rem;
+
+  line-height:2.1;
+
+  margin-bottom:1rem;
+}
+
+.dua-translit{
+  font-style:italic;
+
+  color:var(--olive);
+
+  font-size:.98rem;
+
+  margin-bottom:.7rem;
+}
+
+.dua-trans{
+  color:var(--cream-70);
+
+  font-size:.95rem;
+
+  max-width:440px;
+
+  margin:0 auto;
+}
+
+
+/* =========================================================
+   RSVP
+========================================================= */
+
+form.rsvp{
+
+  display:grid;
+
+  gap:1.3rem;
+
+  margin-top:2.2rem;
+
+  text-align:left;
+}
+
+.field label{
+
+  display:block;
+
+  font-size:.76rem;
+
+  letter-spacing:.12em;
+
+  text-transform:uppercase;
+
+  color:var(--cream-70);
+
+  margin-bottom:.5rem;
+}
+
+.field input,
+.field textarea,
+.field select{
+
+  width:100%;
+
+  background:transparent;
+
+  border:none;
+
+  border-bottom:1px solid var(--hairline);
+
+  color:var(--cream);
+
+  font-family:'EB Garamond',serif;
+
+  font-size:1.05rem;
+
+  padding:.5rem .1rem;
+
+  outline:none;
+
+  transition:border-color .3s ease;
+}
+
+.field input:focus,
+.field textarea:focus,
+.field select:focus{
+
+  border-color:var(--olive);
+}
+
+.field select option{
+  color:#111;
+}
+
+.radio-row{
+
+  display:flex;
+
+  gap:1.6rem;
+}
+
+.radio-row label{
+
+  display:flex;
+
+  align-items:center;
+
+  gap:.5rem;
+
+  font-size:.98rem;
+
+  color:var(--cream);
+
+  text-transform:none;
+
+  letter-spacing:0;
+
+  cursor:pointer;
+}
+
+.rsvp-submit{
+
+  justify-self:center;
+
+  margin-top:.4rem;
+
+  background:transparent;
+
+  border:1px solid var(--cream);
+
+  color:var(--cream);
+
+  font-family:'EB Garamond',serif;
+
+  font-size:.86rem;
+
+  letter-spacing:.16em;
+
+  text-transform:uppercase;
+
+  padding:.9rem 2.4rem;
+
+  cursor:pointer;
+
+  transition:background .35s ease,color .35s ease;
+}
+
+.rsvp-submit:hover{
+
+  background:var(--cream);
+
+  color:var(--wine);
+}
+
+.rsvp-confirm{
+
+  display:none;
+
+  padding:2rem 0;
+}
+
+.rsvp-confirm.show{
+
+  display:block;
+
+  animation:fadeIn .6s ease;
+}
+
+form.rsvp.hide{
+  display:none;
+}
+
+@keyframes fadeIn{
+
+  from{
+    opacity:0;
+    transform:translateY(8px);
+  }
+
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+
 }
 
 
@@ -646,198 +882,75 @@ a {
    FOOTER
 ========================================================= */
 
-footer {
-  text-align: center;
+footer{
 
-  padding:
-    4.5rem
-    1.6rem
-    3rem;
+  text-align:center;
 
-  border-top: 1px solid var(--hairline);
+  padding:4.5rem 1.6rem 3rem;
+
+  border-top:1px solid var(--hairline);
 }
 
-footer .script-name {
-  font-family: 'Aniyah', cursive;
+footer .script-name{
 
-  font-size: 2.4rem;
+  font-size:2.4rem;
 
-  color: var(--olive);
+  color:var(--olive);
 }
 
-footer p {
-  color: var(--cream-70);
+footer p{
 
-  font-size: .86rem;
+  color:var(--cream-70);
 
-  letter-spacing: .06em;
+  font-size:.86rem;
 
-  margin-top: .6rem;
+  letter-spacing:.06em;
 
-  text-transform: uppercase;
+  margin-top:.6rem;
+
+  text-transform:uppercase;
 }
 
+@media(max-width:560px){
 
-/* =========================================================
-   TABLET / MOBILE
-========================================================= */
+  .pill{
 
-@media (max-width: 640px) {
+    border-radius:140px;
 
-  .hero {
-    min-height: 100svh;
-
-    padding:
-      4rem
-      1rem
-      3rem;
+    padding:3.4rem 1.6rem 2.8rem;
   }
 
-  .hero-inner {
-    padding:
-      2rem
-      .8rem
-      4rem;
+  .save-date{
+    padding:4.5rem 1rem;
   }
 
-  .hero-frame {
-    inset: 18px;
+  .section{
+    padding:4.5rem 1.2rem;
   }
 
-  .hero-para {
-    max-width: 330px;
-
-    font-size: .94rem;
-
-    line-height: 1.7;
-  }
-
-  .couple-block {
-    margin-top: 1.5rem;
-  }
-
-  .couple-name {
-    font-family: 'Aniyah', cursive;
-
-    font-size: clamp(
-      2rem,
-      10vw,
-      3rem
-    );
-  }
-
-  .couple-sub {
-    font-size: .68rem;
-
-    letter-spacing: .08em;
-  }
-
-  .embossed-art {
-    width: 135%;
-    height: 110%;
-
-    left: -17.5%;
-    top: -5%;
-  }
-
-  .save-date {
-    padding:
-      4.5rem
-      1rem;
-  }
-
-  .pill {
-    border-radius: 140px;
-
-    padding:
-      3.5rem
-      1.6rem
-      2.8rem;
-  }
-
-  .countdown-strip {
-    gap: 1.3rem;
-  }
-
-  .countdown-strip .num {
-    font-size: 2rem;
-  }
-
-  .section {
-    padding:
-      4.5rem
-      1.2rem;
-  }
 }
 
+@media(max-width:380px){
 
-/* =========================================================
-   VERY SMALL PHONES
-========================================================= */
-
-@media (max-width: 380px) {
-
-  .hero {
-    padding-left: .7rem;
-    padding-right: .7rem;
+  .couple-name{
+    font-size:6.6vw;
   }
 
-  .hero-inner {
-    padding-left: .5rem;
-    padding-right: .5rem;
-  }
-
-  .hero-para {
-    font-size: .88rem;
-  }
-
-  .couple-name {
-    font-family: 'Aniyah', cursive;
-
-    font-size: 8vw;
-  }
-
-  .couple-sub {
-    font-size: .61rem;
-  }
-
-  .countdown-strip {
-    gap: .7rem;
-  }
-
-  .countdown-strip .cd-item {
-    min-width: 50px;
-  }
-
-  .countdown-strip .num {
-    font-size: 1.7rem;
-  }
-
-  .countdown-strip .lbl {
-    font-size: .62rem;
-  }
 }
 
+@media(prefers-reduced-motion:reduce){
 
-/* =========================================================
-   REDUCED MOTION
-========================================================= */
-
-@media (prefers-reduced-motion: reduce) {
-
-  * {
-    animation: none !important;
-
-    transition: none !important;
-
-    scroll-behavior: auto !important;
+  *{
+    animation:none !important;
+    transition:none !important;
+    scroll-behavior:auto !important;
   }
 
-  .reveal {
-    opacity: 1;
-
-    transform: none;
+  .reveal{
+    opacity:1;
+    transform:none;
   }
+
 }
 
 </style>
@@ -847,565 +960,13 @@ footer p {
 <body>
 
 
-<!-- =======================================================
-     HERO
-======================================================= -->
+<!-- =========================================================
+     HERO / INVITATION CARD
+========================================================= -->
 
 <section class="hero">
 
-  <!-- =====================================================
-       RESPONSIVE EMBOSSED BOTANICAL SVG
-  ====================================================== -->
-
-  <svg
-    class="embossed-art"
-    viewBox="0 0 800 1000"
-    preserveAspectRatio="xMidYMid slice"
-    xmlns="http://www.w3.org/2000/svg"
-    aria-hidden="true"
-  >
-
-    <defs>
-
-      <!-- Subtle paper noise -->
-
-      <filter id="paperTexture">
-
-        <feTurbulence
-          type="fractalNoise"
-          baseFrequency=".75"
-          numOctaves="2"
-          seed="5"
-          result="noise"
-        />
-
-        <feColorMatrix
-          in="noise"
-          type="saturate"
-          values="0"
-        />
-
-        <feComponentTransfer>
-
-          <feFuncA
-            type="table"
-            tableValues="0 .06"
-          />
-
-        </feComponentTransfer>
-
-      </filter>
-
-    </defs>
-
-
-    <!-- ===================================================
-         DARK / RECESSED EMBOSS LAYER
-    ==================================================== -->
-
-    <g
-      fill="none"
-      stroke="#21000b"
-      stroke-width="5"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-      opacity=".65"
-      transform="translate(-3 -3)"
-    >
-
-      <!-- LEFT TOP FLOWER -->
-
-      <path d="
-        M210 570
-        C210 450
-        205 330
-        190 220
-      "/>
-
-      <path d="
-        M190 235
-        C165 215
-        140 180
-        145 135
-        C175 150
-        195 185
-        190 235
-      "/>
-
-      <path d="
-        M190 235
-        C215 215
-        240 180
-        235 135
-        C205 150
-        185 185
-        190 235
-      "/>
-
-      <path d="
-        M190 255
-        C150 240
-        115 205
-        105 165
-        C145 175
-        175 205
-        190 255
-      "/>
-
-      <path d="
-        M190 255
-        C230 240
-        265 205
-        275 165
-        C235 175
-        205 205
-        190 255
-      "/>
-
-
-      <!-- LEFT LEAVES -->
-
-      <path d="
-        M205 355
-        C165 320
-        120 315
-        90 340
-        C125 365
-        165 370
-        205 355
-      "/>
-
-      <path d="
-        M207 410
-        C160 385
-        115 390
-        85 420
-        C125 435
-        165 435
-        207 410
-      "/>
-
-
-      <!-- RIGHT TOP FLOWER -->
-
-      <path d="
-        M575 570
-        C575 450
-        580 330
-        595 220
-      "/>
-
-      <path d="
-        M595 235
-        C620 215
-        645 180
-        640 135
-        C610 150
-        590 185
-        595 235
-      "/>
-
-      <path d="
-        M595 235
-        C570 215
-        545 180
-        550 135
-        C580 150
-        600 185
-        595 235
-      "/>
-
-      <path d="
-        M595 255
-        C635 240
-        670 205
-        680 165
-        C640 175
-        610 205
-        595 255
-      "/>
-
-      <path d="
-        M595 255
-        C555 240
-        520 205
-        510 165
-        C550 175
-        580 205
-        595 255
-      "/>
-
-
-      <!-- RIGHT LEAVES -->
-
-      <path d="
-        M580 355
-        C620 320
-        665 315
-        695 340
-        C660 365
-        620 370
-        580 355
-      "/>
-
-      <path d="
-        M578 410
-        C625 385
-        670 390
-        700 420
-        C660 435
-        620 435
-        578 410
-      "/>
-
-
-      <!-- CENTER LOWER BOTANICALS -->
-
-      <path d="
-        M400 820
-        C390 700
-        390 570
-        400 440
-      "/>
-
-      <path d="
-        M400 500
-        C360 470
-        330 430
-        330 385
-        C365 400
-        395 440
-        400 500
-      "/>
-
-      <path d="
-        M400 500
-        C440 470
-        470 430
-        470 385
-        C435 400
-        405 440
-        400 500
-      "/>
-
-
-      <!-- CENTER LEAVES -->
-
-      <path d="
-        M400 610
-        C350 575
-        310 580
-        280 615
-        C320 635
-        360 635
-        400 610
-      "/>
-
-      <path d="
-        M400 675
-        C450 640
-        490 645
-        520 680
-        C480 700
-        440 700
-        400 675
-      "/>
-
-
-      <!-- BOTTOM CURLS -->
-
-      <path d="
-        M400 820
-        C350 790
-        300 800
-        285 835
-        C275 860
-        310 875
-        330 855
-        C340 845
-        330 830
-        315 838
-      "/>
-
-      <path d="
-        M400 820
-        C450 790
-        500 800
-        515 835
-        C525 860
-        490 875
-        470 855
-        C460 845
-        470 830
-        485 838
-      "/>
-
-    </g>
-
-
-    <!-- ===================================================
-         LIGHT / RAISED EMBOSS LAYER
-    ==================================================== -->
-
-    <g
-      fill="none"
-      stroke="#e9a9b8"
-      stroke-width="5"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-      opacity=".28"
-      transform="translate(3 3)"
-    >
-
-      <!-- LEFT TOP FLOWER -->
-
-      <path d="
-        M210 570
-        C210 450
-        205 330
-        190 220
-      "/>
-
-      <path d="
-        M190 235
-        C165 215
-        140 180
-        145 135
-        C175 150
-        195 185
-        190 235
-      "/>
-
-      <path d="
-        M190 235
-        C215 215
-        240 180
-        235 135
-        C205 150
-        185 185
-        190 235
-      "/>
-
-      <path d="
-        M190 255
-        C150 240
-        115 205
-        105 165
-        C145 175
-        175 205
-        190 255
-      "/>
-
-      <path d="
-        M190 255
-        C230 240
-        265 205
-        275 165
-        C235 175
-        205 205
-        190 255
-      "/>
-
-
-      <!-- LEFT LEAVES -->
-
-      <path d="
-        M205 355
-        C165 320
-        120 315
-        90 340
-        C125 365
-        165 370
-        205 355
-      "/>
-
-      <path d="
-        M207 410
-        C160 385
-        115 390
-        85 420
-        C125 435
-        165 435
-        207 410
-      "/>
-
-
-      <!-- RIGHT FLOWER -->
-
-      <path d="
-        M575 570
-        C575 450
-        580 330
-        595 220
-      "/>
-
-      <path d="
-        M595 235
-        C620 215
-        645 180
-        640 135
-        C610 150
-        590 185
-        595 235
-      "/>
-
-      <path d="
-        M595 235
-        C570 215
-        545 180
-        550 135
-        C580 150
-        600 185
-        595 235
-      "/>
-
-      <path d="
-        M595 255
-        C635 240
-        670 205
-        680 165
-        C640 175
-        610 205
-        595 255
-      "/>
-
-      <path d="
-        M595 255
-        C555 240
-        520 205
-        510 165
-        C550 175
-        580 205
-        595 255
-      "/>
-
-
-      <!-- RIGHT LEAVES -->
-
-      <path d="
-        M580 355
-        C620 320
-        665 315
-        695 340
-        C660 365
-        620 370
-        580 355
-      "/>
-
-      <path d="
-        M578 410
-        C625 385
-        670 390
-        700 420
-        C660 435
-        620 435
-        578 410
-      "/>
-
-
-      <!-- CENTER -->
-
-      <path d="
-        M400 820
-        C390 700
-        390 570
-        400 440
-      "/>
-
-      <path d="
-        M400 500
-        C360 470
-        330 430
-        330 385
-        C365 400
-        395 440
-        400 500
-      "/>
-
-      <path d="
-        M400 500
-        C440 470
-        470 430
-        470 385
-        C435 400
-        405 440
-        400 500
-      "/>
-
-      <path d="
-        M400 610
-        C350 575
-        310 580
-        280 615
-        C320 635
-        360 635
-        400 610
-      "/>
-
-      <path d="
-        M400 675
-        C450 640
-        490 645
-        520 680
-        C480 700
-        440 700
-        400 675
-      "/>
-
-
-      <!-- CURLS -->
-
-      <path d="
-        M400 820
-        C350 790
-        300 800
-        285 835
-        C275 860
-        310 875
-        330 855
-        C340 845
-        330 830
-        315 838
-      "/>
-
-      <path d="
-        M400 820
-        C450 790
-        500 800
-        515 835
-        C525 860
-        490 875
-        470 855
-        C460 845
-        470 830
-        485 838
-      "/>
-
-    </g>
-
-
-    <!-- ===================================================
-         VERY SUBTLE PAPER GRAIN
-    ==================================================== -->
-
-    <rect
-      width="100%"
-      height="100%"
-      filter="url(#paperTexture)"
-      opacity=".35"
-    />
-
-  </svg>
-
-
-  <!-- CARD FRAME -->
-
   <div class="hero-frame"></div>
-
-
-  <!-- =====================================================
-       INVITATION CONTENT
-  ====================================================== -->
 
   <div class="hero-inner reveal" id="heroReveal">
 
@@ -1413,14 +974,11 @@ footer p {
       With the blessings of Almighty Allah (SWT)
     </div>
 
-
     <p class="hero-para">
-      Mrs. Farida Jamal &amp; Mr. Mohd. Hadis Lari
-      cordially request the honour of your gracious presence
-      and blessings on the auspicious occasion of the
-      <em>Nikah</em> of their beloved daughter
+      Mrs. Farida Jamal &amp; Mr. Mohd. Hadis Lari cordially request
+      the honour of your gracious presence and blessings on the
+      auspicious occasion of the <em>Nikah</em> of their beloved daughter
     </p>
-
 
     <div class="couple-block">
 
@@ -1428,21 +986,17 @@ footer p {
         Laiba Aaliya Hadis
       </div>
 
-
       <div class="couple-sub">
         Mrs. Farida Jamal &amp; Mr. Mohd. Hadis Lari
       </div>
-
 
       <span class="amp">
         &amp;
       </span>
 
-
       <div class="couple-name script-name">
         Yasir Aftab
       </div>
-
 
       <div class="couple-sub">
         Dr. Shaheen Siddiqui &amp; Dr. Aftab Mustaquim
@@ -1455,9 +1009,9 @@ footer p {
 </section>
 
 
-<!-- =======================================================
+<!-- =========================================================
      SAVE THE DATE
-======================================================= -->
+========================================================= -->
 
 <section class="save-date">
 
@@ -1479,20 +1033,15 @@ footer p {
 
     </div>
 
-
     <div class="sched">
 
-      Nikah Ceremony
-      <br>
+      Nikah Ceremony<br>
 
-      Thursday, 22nd October 2026
-      <br>
+      Thursday, 22nd October 2026<br>
 
       <span class="strong">
         Arrival of Baraat: 7:30 PM
-      </span>
-
-      <br>
+      </span><br>
 
       <span class="strong">
         Nikah: 8:00 PM
@@ -1500,21 +1049,17 @@ footer p {
 
     </div>
 
-
     <div class="venue-label">
       Venue
     </div>
 
-
     <div class="venue-addr">
 
-      Jamia Community Centre
-      <br>
+      Jamia Community Centre<br>
 
-      Mujeeb Bagh, Jamia Nagar
-      <br>
+      Mujeeb Bagh, Jamia Nagar<br>
 
-      New Delhi – 110025
+      New Delhi &ndash; 110025
 
     </div>
 
@@ -1523,9 +1068,9 @@ footer p {
 </section>
 
 
-<!-- =======================================================
+<!-- =========================================================
      COUNTDOWN
-======================================================= -->
+========================================================= -->
 
 <div class="countdown-strip">
 
@@ -1541,7 +1086,6 @@ footer p {
 
   </div>
 
-
   <div class="cd-item">
 
     <span class="num" id="cd-hours">
@@ -1554,7 +1098,6 @@ footer p {
 
   </div>
 
-
   <div class="cd-item">
 
     <span class="num" id="cd-mins">
@@ -1566,7 +1109,6 @@ footer p {
     </span>
 
   </div>
-
 
   <div class="cd-item">
 
@@ -1583,38 +1125,65 @@ footer p {
 </div>
 
 
-<!-- =======================================================
-     VERSE
-======================================================= -->
+<!-- =========================================================
+     VERSE — THIRD PAGE WITH FLOWERS
+========================================================= -->
 
-<section class="section reveal">
+<section class="section reveal verse-section">
+
+  <!-- TOP LEFT -->
+  <img
+    src="images/07.png"
+    alt=""
+    class="flower flower-tl"
+  >
+
+  <!-- TOP RIGHT -->
+  <img
+    src="images/08.png"
+    alt=""
+    class="flower flower-tr"
+  >
+
+  <!-- BOTTOM LEFT -->
+  <img
+    src="images/10.png"
+    alt=""
+    class="flower flower-bl"
+  >
+
+  <!-- BOTTOM RIGHT -->
+  <img
+    src="images/09.png"
+    alt=""
+    class="flower flower-br"
+  >
 
   <div class="eyebrow">
 
     <span class="rule"></span>
 
-    Surah Ar-Rom · 30:21
+    Surah Ar-Rom &middot; 30:21
 
     <span class="rule"></span>
 
   </div>
 
-
   <p class="quote">
 
     "And among His signs is that He created for you spouses
-    from among yourselves that you may find tranquility in
-    them; and He placed between you affection and mercy.
-    Indeed, in that are signs for people who reflect."
+    from among yourselves that you may find tranquility in them;
+    and He placed between you affection and mercy. Indeed,
+    in that are signs for people who reflect."
 
   </p>
 
 </section>
 
 
-<!-- =======================================================
+<!-- =========================================================
      DUA
-======================================================= -->
+========================================================= -->
 
 <section class="section reveal">
 
@@ -1624,14 +1193,11 @@ footer p {
 
   </div>
 
-
   <div class="dua-translit">
 
-    Barakallahu lakuma wa baraka 'alaykuma
-    wa jama'a baynakuma fi khayr.
+    Barakallahu lakuma wa baraka 'alaykuma wa jama'a baynakuma fi khayr.
 
   </div>
-
 
   <div class="dua-trans">
 
@@ -1643,9 +1209,154 @@ footer p {
 </section>
 
 
-<!-- =======================================================
+<!-- =========================================================
+     RSVP FORM
+========================================================= -->
+
+<section class="section reveal">
+
+  <div class="eyebrow">
+
+    <span class="rule"></span>
+
+    RSVP
+
+    <span class="rule"></span>
+
+  </div>
+
+  <div class="r-names" style="margin-bottom:2.2rem;">
+
+    Mrs. Farida Jamal &amp; Mr. Mohd. Hadis Lari
+
+  </div>
+
+  <form class="rsvp" id="rsvpForm">
+
+    <div class="field">
+
+      <label for="name">
+        Your name
+      </label>
+
+      <input
+        id="name"
+        type="text"
+        required
+      >
+
+    </div>
+
+    <div class="field">
+
+      <label>
+        Will you be attending?
+      </label>
+
+      <div class="radio-row">
+
+        <label>
+
+          <input
+            type="radio"
+            name="attend"
+            value="yes"
+            checked
+          >
+
+          Joyfully accepts
+
+        </label>
+
+        <label>
+
+          <input
+            type="radio"
+            name="attend"
+            value="no"
+          >
+
+          Regretfully declines
+
+        </label>
+
+      </div>
+
+    </div>
+
+    <div class="field">
+
+      <label for="guests">
+        Number of guests
+      </label>
+
+      <select id="guests">
+
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+
+      </select>
+
+    </div>
+
+    <div class="field">
+
+      <label for="msg">
+        Message for the couple (optional)
+      </label>
+
+      <textarea
+        id="msg"
+        rows="3"
+      ></textarea>
+
+    </div>
+
+    <button
+      type="submit"
+      class="rsvp-submit"
+    >
+
+      Send RSVP
+
+    </button>
+
+  </form>
+
+  <div
+    class="rsvp-confirm"
+    id="rsvpConfirm"
+  >
+
+    <div
+      class="script-date"
+      style="font-size:2.2rem;color:#6c7246;"
+    >
+
+      Jazakallah Khair
+
+    </div>
+
+    <p
+      style="color:var(--cream-70);margin-top:.6rem;"
+    >
+
+      Your response has been recorded.
+      We can't wait to celebrate with you.
+
+    </p>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================================
      FOOTER
-======================================================= -->
+========================================================= -->
 
 <footer>
 
@@ -1655,19 +1366,16 @@ footer p {
 
   </div>
 
-
   <p>
 
-    22nd October 2026 · New Delhi
+    22nd October 2026 &middot; New Delhi
 
   </p>
 
-
   <p>
 
-    RSVP — Mrs. Farida Jamal &amp;
-    Mr. Mohd. Hadis Lari
-    · +91 95994 76442
+    RSVP &mdash; Mrs. Farida Jamal &amp; Mr. Mohd. Hadis Lari
+    &middot; +91 95994 76442
 
   </p>
 
@@ -1681,80 +1389,78 @@ footer p {
 ========================================================= */
 
 const target =
-  new Date(
-    "2026-10-22T20:00:00+05:30"
-  ).getTime();
+  new Date("2026-10-22T20:00:00+05:30").getTime();
 
 
-function tick() {
+function tick(){
 
   const diff =
-    Math.max(
-      0,
-      target - Date.now()
-    );
+    Math.max(0,target-Date.now());
 
 
   const d =
-    Math.floor(
-      diff / 86400000
-    );
+    Math.floor(diff/86400000);
 
 
   const h =
     Math.floor(
-      (diff % 86400000) /
-      3600000
+      (diff%86400000)/3600000
     );
 
 
   const m =
     Math.floor(
-      (diff % 3600000) /
-      60000
+      (diff%3600000)/60000
     );
 
 
   const s =
     Math.floor(
-      (diff % 60000) /
-      1000
+      (diff%60000)/1000
     );
 
 
   const pad =
-    n =>
-      String(n).padStart(2, '0');
+    n => String(n).padStart(2,'0');
 
 
-  document.getElementById(
-    'cd-days'
-  ).textContent = pad(d);
+  document.getElementById('cd-days').textContent =
+    pad(d);
 
+  document.getElementById('cd-hours').textContent =
+    pad(h);
 
-  document.getElementById(
-    'cd-hours'
-  ).textContent = pad(h);
+  document.getElementById('cd-mins').textContent =
+    pad(m);
 
-
-  document.getElementById(
-    'cd-mins'
-  ).textContent = pad(m);
-
-
-  document.getElementById(
-    'cd-secs'
-  ).textContent = pad(s);
+  document.getElementById('cd-secs').textContent =
+    pad(s);
 
 }
 
 
 tick();
 
-setInterval(
-  tick,
-  1000
-);
+setInterval(tick,1000);
+
+
+/* =========================================================
+   RSVP
+========================================================= */
+
+document
+  .getElementById('rsvpForm')
+  .addEventListener('submit',function(e){
+
+    e.preventDefault();
+
+    this.classList.add('hide');
+
+    document
+      .getElementById('rsvpConfirm')
+      .classList.add('show');
+
+  });
 
 
 /* =========================================================
@@ -1763,59 +1469,36 @@ setInterval(
 
 const io =
   new IntersectionObserver(
-    entries => {
 
-      entries.forEach(
-        entry => {
+    (entries) => {
 
-          if (
-            entry.isIntersecting
-          ) {
+      entries.forEach(en => {
 
-            entry.target
-              .classList
-              .add('in');
+        if(en.isIntersecting){
 
-            io.unobserve(
-              entry.target
-            );
+          en.target.classList.add('in');
 
-          }
+          io.unobserve(en.target);
 
         }
-      );
+
+      });
 
     },
+
     {
-      threshold: .2
+      threshold:.2
     }
+
   );
 
 
 document
   .querySelectorAll('.reveal')
-  .forEach(
-    el => io.observe(el)
-  );
-
-
-/* =========================================================
-   HERO IMMEDIATE REVEAL
-========================================================= */
-
-setTimeout(
-  () => {
-
-    document
-      .getElementById('heroReveal')
-      .classList
-      .add('in');
-
-  },
-  200
-);
+  .forEach(el => io.observe(el));
 
 </script>
+
 
 </body>
 </html>
